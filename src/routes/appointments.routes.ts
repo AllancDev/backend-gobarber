@@ -13,9 +13,9 @@ const appointmentsRepository = new AppointmentsRepository();
 // Rota: Receber a requisição, chamar outro arquivo, e devolver a resposta
 
 
-appointmentsRouter.get('/', (request, response) => {
+appointmentsRouter.get('/', async (request, response) => {
   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
-  const appointments = appointmentsRepository.find();
+  const appointments = await appointmentsRepository.find();
   return response.json(appointments);
 })
 
